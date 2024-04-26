@@ -1,0 +1,4 @@
+FROM openjdk:19
+COPY /DemoApplication.jar /java-app/java-app.jar
+WORKDIR /java-app
+ENTRYPOINT ["java","java-app.jar"]

@@ -71,5 +71,5 @@ jobs:
       - name: Docker Scout Quickview
         run: docker scout quickview
 
-      - name: Docker Scout CVEs
+      - name: Docker Scout CVE
         run: docker scout cves

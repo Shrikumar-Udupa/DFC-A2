@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'jacoco'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id "org.sonarqube" version "4.4.1.3373"
+}
+
+group = 'com.devops.assign'
+version = '0.0.1-SNAPSHOT'
+
+sonar {
+  properties {
+    property "sonar.projectKey", "venkatgavulla_assignment"
+    property "sonar.organization", "venkatgavulla"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+build.dependsOn jacocoTestReport
+
+//successful project

@@ -11,7 +11,6 @@ public class DemoApplication {
 
 
 	@RequestMapping(path="/test")
-	@ResponseBody
 	public void testmethod(){
 		System.out.println("hello world");
 	}

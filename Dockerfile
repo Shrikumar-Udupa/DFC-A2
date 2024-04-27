@@ -1,5 +1,5 @@
 FROM openjdk:17
-COPY build/libs/*.jar /java-app/java-app.jar
-WORKDIR /java-app
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} java-app.jar
+ENTRYPOINT ["java","-jar","/java-app.jar"]
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","java-app.jar"]

@@ -76,6 +76,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: /home/runner/work/DFC-A2/DFC-A2/Dockerfile
           push: true
           tags: shrikumarudupa/java-app:latest

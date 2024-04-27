@@ -61,10 +61,11 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - name: Build
+        run: chmod +x gradlew && ./gradlew build -x test
       -
         name: Build and push
         uses: docker/build-push-action@v5
-	run: pwd && ls -lrth
         with:
           file: ./Dockerfile
           push: true

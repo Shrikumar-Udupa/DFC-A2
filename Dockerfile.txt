@@ -1,4 +1,5 @@
 FROM openjdk:17
-COPY /DemoApplication.jar /java-app/java-app.jar
+COPY build/libs/*.jar /java-app/java-app.jar
 WORKDIR /java-app
-ENTRYPOINT ["java","java-app.jar"]
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","java-app.jar"]

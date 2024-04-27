@@ -64,6 +64,7 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v5
+	run: pwd && ls -lrth
         with:
           file: ./Dockerfile
           push: true

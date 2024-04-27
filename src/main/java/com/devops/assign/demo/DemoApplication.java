@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoApplication {
 
 
-	@RequestMapping(path="")
+	@RequestMapping(path="/test")
+	@ResponseBody
 	public void testmethod(){
 		System.out.println("hello world");
 	}

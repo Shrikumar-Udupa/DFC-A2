@@ -78,7 +78,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: shrikumarudupa/java-app:-${{ github.run_number }}
+          tags: shrikumarudupa/java-app:${{ github.run_number }}
 
   modifygit:
     needs: deploy

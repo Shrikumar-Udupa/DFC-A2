@@ -80,7 +80,7 @@ jobs:
           push: true
           tags: |
 	    shrikumarudupa/java-app:latest
-	    shrikumarudupa/java-app:${{github.run_number}}
+	    shrikumarudupa/java-app:-${{ github.run_number }}
 
   modifygit:
     needs: deploy

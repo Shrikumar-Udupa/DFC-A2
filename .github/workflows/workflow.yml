@@ -78,4 +78,32 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: shrikumarudupa/java-app:latest
+          tags: |
+	    shrikumarudupa/java-app:latest
+	    shrikumarudupa/java-app:${{github.run_number}}
+
+  modifygit:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: changing the deployment of git repo
+        with:
+          repository: 'Shrikumar-Udupa/java-app-deploy'
+          token: ${{ secrets.GIT_PASSWORD }}
+      - name: modify the image
+        run: |
+          git config user.email shrikumarudupa99@gmail.com
+          git config user.name Shrikumar
+          pwd
+          cat manifest/deployment.yaml
+          pwd
+          sed -i "s+shrikumarudupa/java-app:*+shrikumarudupa/java-app:$RUN_NUMBER+g" manifest/deployment.yaml
+          cat manifest/deployment.yaml
+          git add .
+          git commit -m 'Manifest update by Github Actions Job changemanifest: ${{ github.run_number }}'
+          git push origin main
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+          RUN_NUMBER: ${{ github.run_number }}

@@ -89,7 +89,7 @@ jobs:
         with:
           repository: 'Shrikumar-Udupa/java-app-deploy'
           token: ${{ secrets.GIT_PASSWORD }}
-      - name: modify the image
+      - name: modify the image tag
         run: |
           git config user.email shrikumarudupa99@gmail.com
           git config user.name Shrikumar

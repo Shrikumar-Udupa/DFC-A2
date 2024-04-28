@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        name: changing the deployment of manifest git repo
+        name: changing the image of manifest git repo
         with:
           repository: 'Shrikumar-Udupa/java-app-deploy'
           token: ${{ secrets.GIT_PASSWORD }}

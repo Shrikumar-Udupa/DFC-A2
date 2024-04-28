@@ -96,7 +96,8 @@ jobs:
           pwd && ls -lrth
           cat manifest/java-app-deploy.yaml
           pwd
-          sed -i "s+shrikumarudupa/java-app:*+shrikumarudupa/java-app:$RUN_NUMBER+g" manifest/java-app-deploy.yaml
+          #sed -i "s/shrikumarudupa/java-app:*/shrikumarudupa/java-app:$RUN_NUMBER/g" manifest/java-app-deploy.yaml
+	  sed -i 's/shrikumarudupa\/java-app:*/shrikumarudupa\/java-app:$RUN_NUMBER/g' manifest/java-app-deploy.yaml
           cat manifest/java-app-deploy.yaml
           git add .
           git commit -m 'Manifest update by Github Actions Job changemanifest: ${{ github.run_number }}'

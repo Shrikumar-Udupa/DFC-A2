@@ -12,7 +12,7 @@ public class DemoApplication {
 
 	@RequestMapping(path="/test")
 	public void testmethod(){
-		System.out.println("hello world V2");
+		System.out.println("hello world V3");
 	}
 	
 	public static void main(String[] args) {
